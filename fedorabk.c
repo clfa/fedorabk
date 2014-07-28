@@ -29,7 +29,11 @@ void DoCopy(const char* ccFn, const char* ccFnto, int iListFile)	{
         char* cPathNsf = dirname(cTemp);
         char cCmd[256] = "";
         sprintf(cCmd, "mkdir -p \"%s\"", cPathNsf);
-        system(cCmd);
+        DIR* df;
+        if( (df = opendir(ccFnto)) == NULL)
+                system(cCmd);
+        else
+                closedir(df);
         sprintf(cCmd, "cp \"%s\" \"%s\"", ccFn, cPathNsf);
         system(cCmd);
         if(iListFile)

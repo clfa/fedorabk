@@ -6,6 +6,4 @@
 
 void MakeBackup(char* cfp, char* ctp, int iListFile);
 
-void PrintHelp(FILE* stream, int exit_code);
-
 #endif  /*fedorabk.h*/
