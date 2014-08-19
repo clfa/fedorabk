@@ -84,7 +84,7 @@ int ListDir( char* cfp, char* ctp, char* cfpcon, int iListFile ) {
                                 iCpCnt++;
                         }
                         else if(0 == iRet)    {
-                                if(FileIsNew(pStatBk.st_mtime, pStat.st_mtime))   {
+                                if(FileIsNew(pStatBk.st_mtime, pStat.st_mtime) && pStatBk.st_size!=pStat.st_size)   {
                                         DoCopy(cPath, cBkPath, iListFile);
                                         iCpCnt++;
                                 }
